@@ -9,6 +9,9 @@ __pycache__/
 # MAC OS
 *.DS_Store
 
+#Ignore PWsandbox Directory and contents
+/PWsandbox/**
+
 # Distribution / packaging
 .Python
 build/
