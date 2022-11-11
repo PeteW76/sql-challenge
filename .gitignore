@@ -10,7 +10,7 @@ __pycache__/
 *.DS_Store
 
 #Ignore PWsandbox Directory and contents
-/PWsandbox/**
+PWsandbox/**
 
 # Distribution / packaging
 .Python
