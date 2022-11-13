@@ -1,0 +1,39 @@
+# SQL Homework
+# Schema 20221111
+
+# https://www.quickdatabasediagrams.com/
+
+department as dep
+-----
+dept_no PK int
+dept_name varchar
+
+employees as em
+-----
+emp_no PK int
+emp_title_id int FK - titles.title_id
+birth_date date
+first_name varchar
+last_name varchar
+sex varchar
+hire_date date
+
+titles as ti
+-----
+title_id PK int
+title varchar
+
+dept_emp as de
+-----
+emp_no FK >-< employees.emp_no
+dept_no FK >-< department.dept_no
+
+dept_manager as dm
+-----
+dept_no FK >-< department.dept_no
+emp_no FK >-< employees.emp_no
+
+salaries as sa
+-----
+emp_no FK - employees.emp_no
+salary int
