@@ -16,7 +16,7 @@
 ---------------------------------------------------------
 --  select de.dept_no, de.dept_name, em.emp_no, em.first_name, em.last_name
 --  from employees em inner join dept_manager dm on dm.emp_no = em.emp_no
---  inner join department de on dm.dept_no = de.dept_no
+--  inner join departments de on dm.dept_no = de.dept_no
 ---------------------------------------------------------
 
 --****List the department of each employee with the following information:
@@ -24,7 +24,7 @@
 ---------------------------------------------------------
 -- select em.emp_no, em.last_name, em.first_name, dep.dept_name
 -- from employees em inner join dept_emp de on em.emp_no = de.emp_no
--- inner join department dep on dep.dept_no = de.dept_no
+-- inner join departments dep on dep.dept_no = de.dept_no
 ---------------------------------------------------------
 
 --****List first name, last name, and sex for employees whose first name is "Hercules"
@@ -41,7 +41,7 @@
 ---------------------------------------------------------
 -- select em.emp_no, em.last_name, em.first_name, dep.dept_name
 -- from employees em inner join dept_emp de on em.emp_no = de.emp_no
--- inner join department dep on dep.dept_no = de.dept_no
+-- inner join departments dep on dep.dept_no = de.dept_no
 -- where dep.dept_no = 'd007'
 ---------------------------------------------------------
 
@@ -52,7 +52,7 @@
 -- select em.emp_no, em.last_name, em.first_name, dep.dept_name
 -- from employees em
 -- inner join dept_emp de on em.emp_no = de.emp_no
--- inner join department dep on dep.dept_no = de.dept_no
+-- inner join departments dep on dep.dept_no = de.dept_no
 -- where dep.dept_no in('d007', 'd005') 
 ---------------------------------------------------------
 

@@ -1,0 +1,81 @@
+
+-- 01
+-----ˇˇˇˇˇCREATE departments TABLE STATEMENTˇˇˇˇˇ-----
+-- DROP TABLE IF EXISTS departments;
+-- CREATE TABLE departments (
+-- dept_no VARCHAR PRIMARY KEY,
+-- 	dept_name VARCHAR(60)
+-- );
+-----^^^^^CREATE departments TABLE STATEMENT^^^^^-----
+-- Import departments.csv in the "data" directory to populate table
+
+-- 02
+-----ˇˇˇˇˇCREATE titles TABLE STATEMENTˇˇˇˇˇ-----
+-- DROP TABLE IF EXISTS titles;
+-- CREATE TABLE titles (
+-- title_id VARCHAR PRIMARY KEY,
+-- 	title VARCHAR(60)
+-- );
+-----^^^^^CREATE titles TABLE STATEMENT^^^^^-----
+-- Import titles.csv in the "data" directory to populate table
+
+-- 03
+-----ˇˇˇˇˇCREATE employees TABLE STATEMENTˇˇˇˇˇ-----
+-- DROP TABLE IF EXISTS employees;
+-- CREATE TABLE employees (
+-- emp_no INTEGER PRIMARY KEY,
+-- 	emp_title_id VARCHAR NOT NULL,
+-- 	birth_date DATE,
+-- 	first_name VARCHAR(40),
+-- 	last_name VARCHAR (40),
+-- 	sex VARCHAR (3),
+-- 	hire_date DATE,
+-- 	FOREIGN KEY(emp_title_id) REFERENCES titles(title_id)
+-- );
+-----^^^^^CREATE employees TABLE STATEMENT^^^^^-----
+-- Import employees.csv in the "data" directory to populate table
+
+
+--04
+-----ˇˇˇˇˇCREATE dept_manager TABLE STATEMENTˇˇˇˇˇ-----
+-- DROP TABLE IF EXISTS dept_manager;
+-- CREATE TABLE dept_manager(
+-- dept_no VARCHAR,
+-- 	emp_no INT,
+-- 	FOREIGN KEY(dept_no) REFERENCES departments(dept_no),
+-- 	FOREIGN KEY(emp_no) REFERENCES employees(emp_no)
+-- );
+-----^^^^^CREATE dept_manager TABLE STATEMENT^^^^^-----
+-- Import dept_manager.csv in the "data" directory to populate table
+
+--05
+-----ˇˇˇˇˇCREATE dept_emp TABLE STATEMENTˇˇˇˇˇ-----
+-- DROP TABLE IF EXISTS dept_emp;
+-- CREATE TABLE dept_emp(
+-- 	emp_no INT,
+-- dept_no VARCHAR,
+-- 	FOREIGN KEY(emp_no) REFERENCES employees(emp_no),
+-- 	FOREIGN KEY(dept_no) REFERENCES departments(dept_no)
+-- );
+-----^^^^^CREATE dept_emp TABLE STATEMENT^^^^^-----
+-- Import dept_emp.csv in the "data" directory to populate table
+
+--06
+-----ˇˇˇˇˇCREATE salaries TABLE STATEMENTˇˇˇˇˇ-----
+-- DROP TABLE IF EXISTS salaries;
+-- CREATE TABLE salaries(
+-- emp_no INT,
+-- salary INT,
+-- FOREIGN KEY(emp_no) REFERENCES employees(emp_no)
+-- );
+-----^^^^^CREATE salaries TABLE STATEMENT^^^^^-----
+-- Import salaries.csv in the "data" directory to populate table
+
+--07 *****FOR BONUS
+-----ˇˇˇˇˇCREATE EMP_SAL VIEW STATEMENTˇˇˇˇˇ-----
+-- CREATE VIEW EMP_SAL AS
+-- select ti.title, emp.First_Name, emp.Last_Name, sa.salary
+-- from employees emp inner join salaries sa on emp.emp_no = sa.emp_no
+-- inner join titles ti on emp.emp_title_id = ti.title_id;
+-----^^^^^CREATE EMP_SAL VIEW STATEMENT^^^^^-----
+--This view will be used for the pandas.read_sql() function.
